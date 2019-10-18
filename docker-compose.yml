@@ -1,0 +1,46 @@
+version: '3.2'
+
+services:
+
+  couchdb:
+    container_name: couchdb
+    image: apache/couchdb:2.3
+    restart: always
+    ports:
+      - 5984:5984
+    volumes:
+      - ./couchdb/data:/opt/couchdb/data
+    environment:
+      - 'COUCHDB_USER=admin'
+      - 'COUCHDB_PASSWORD=password'
+    networks:
+      - netapi
+
+  jupyter:
+    build: .
+    image: jupyter_ansible
+    volumes:
+      # - jupyter_data:/home/jovyan
+      - ./notebooks:/home/jovyan
+    ports:
+      - 8888:8888
+    networks:
+      - netapi
+
+  alpine:
+    image: alpine:latest
+    command: tail -f /dev/null
+    networks:
+      - netapi
+
+  ubuntu:
+    image: ubuntu:latest
+    command: tail -f /dev/null
+    networks:
+      - netapi
+
+# volumes:
+#   jupyter_data:
+
+networks:
+  netapi:
