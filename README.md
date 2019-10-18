@@ -1,3 +1,8 @@
 Example made to view a number of variables in a playbook.
 
-ansible-variable-example
+To run playbook execute the following commands:
+
+```bash
+docker-compose up -d
+docker-compose logs -f | grep token
+```
