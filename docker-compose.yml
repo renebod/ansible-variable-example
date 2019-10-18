@@ -14,7 +14,7 @@ services:
       - 'COUCHDB_USER=admin'
       - 'COUCHDB_PASSWORD=password'
     networks:
-      - netapi
+      - private
 
   jupyter:
     build: .
@@ -25,22 +25,16 @@ services:
     ports:
       - 8888:8888
     networks:
-      - netapi
-
-  alpine:
-    image: alpine:latest
-    command: tail -f /dev/null
-    networks:
-      - netapi
+      - private
 
   ubuntu:
     image: ubuntu:latest
     command: tail -f /dev/null
     networks:
-      - netapi
+      - private
 
 # volumes:
 #   jupyter_data:
 
 networks:
-  netapi:
+  private:
