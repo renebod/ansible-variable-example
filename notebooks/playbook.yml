@@ -6,31 +6,31 @@
     people:
     - name: Mike
       epic: true
-      kantoor: Eindhoven
+      office: London
       status:
-        kleur: blauw
+        colour: blue
         ready: true
     - name: John
       epic: false
-      kantoor: Utrecht
+      office: Paris
       status:
-        kleur: groen
+        colour: green
         ready: true
     - name: Betty
       epic: true
-      kantoor: Nijmegen
+      office: Berlin
       status:
-        kleur: rood
+        colour: red
         ready: true
     - name: Allan
       epic: true
-      kantoor: Groningen
+      office: Amsterdam
       status:
-        kleur: oranje
+        colour: yellow
         ready: true
 
   tasks:
     - name: FIND PEOPLE
-      debug: msg="Yay it's {{ item.name }} from {{ item.kantoor}} and is ready {{ item.status.ready }}"
+      debug: msg="Yay it's {{ item.name }} from {{ item.office}} and. Status is {{ "ready" if item.status.ready else "not ready" }}"
       with_items: "{{ people }}"
       when: item.epic

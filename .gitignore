@@ -1,0 +1,8 @@
+.DS_Store
+couchdb
+notebooks/.*
+notebooks/_*
+notebooks/*log
+notebooks/artifacts
+notebooks/env
+notebooks/couchdb_fill.ipynb
