@@ -16,3 +16,10 @@ def run(path):
     #     print(each_host_event['event'])
     #     print("Final status:")
     #     print(r.stats)
+
+
+def run2():
+    r = ansible_runner.run(
+        private_data_dir='./',
+        playbook='site.yml',
+        extravars={'foo': 'bar'})

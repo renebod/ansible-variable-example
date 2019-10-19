@@ -1,0 +1,9 @@
+---
+# This playbook uses roles for the purpose of the demo.
+
+- name: Apply common configuration to all nodes
+  hosts: all
+  remote_user: root
+
+  roles:
+    - demo

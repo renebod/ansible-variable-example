@@ -2,22 +2,22 @@ version: '3.2'
 
 services:
 
-  couchdb:
-    container_name: couchdb
-    image: apache/couchdb:2.3
-    restart: always
-    ports:
-      - 5984:5984
-    volumes:
-      - ./couchdb/data:/opt/couchdb/data
-    environment:
-      - 'COUCHDB_USER=admin'
-      - 'COUCHDB_PASSWORD=password'
-    networks:
-      - private
+  # couchdb:
+  #   container_name: couchdb
+  #   image: apache/couchdb:2.3
+  #   restart: always
+  #   ports:
+  #     - 5984:5984
+  #   volumes:
+  #     - ./couchdb/data:/opt/couchdb/data
+  #   environment:
+  #     - 'COUCHDB_USER=admin'
+  #     - 'COUCHDB_PASSWORD=password'
+  #   networks:
+  #     - private
 
   jupyter:
-    build: .
+    build: ./docker/jupyter
     image: jupyter_ansible
     volumes:
       # - jupyter_data:/home/jovyan
@@ -28,8 +28,8 @@ services:
       - private
 
   ubuntu:
-    image: ubuntu:latest
-    command: tail -f /dev/null
+    build: ./docker/ubuntu
+    image: ubuntu_ssh
     networks:
       - private
 

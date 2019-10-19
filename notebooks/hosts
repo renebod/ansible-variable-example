@@ -1,2 +1,10 @@
-[all]
-localhost
+[mytestsystems]
+#test[01:99].example.tld
+ubuntu ansible_connection=ssh ansible_ssh_user=root ansible_ssh_pass=secret123
+
+
+[insecuressh:children]
+mytestsystems
+
+[insecuressh:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
