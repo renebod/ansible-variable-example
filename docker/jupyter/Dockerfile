@@ -9,6 +9,7 @@ RUN pip install ansible
 RUN pip install ansible_runner
 RUN pip install couchdb
 RUN pip install jupyter
+RUN pip install pandas
 
 EXPOSE 8888
 
