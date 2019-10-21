@@ -7,4 +7,10 @@
 - name: PRINT PHONE RECORDS
   debug:
     msg: "User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})"
-  loop: "{{ lookup('dict', users) }}"
+  loop: "{{ lookup('dict', users_orig) }}"
+
+
+- name: PRINT DYNAMIC PHONE RECORDS
+  debug:
+    msg: "User {{ item.key }} is {{ item.name }} ({{ item.telephone }})"
+  loop: "{{ users }}"

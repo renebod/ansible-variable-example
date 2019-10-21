@@ -18,7 +18,7 @@ def run(path):
     #     print(r.stats)
 
 
-def run2():
+def run_roles():
     r = ansible_runner.run(
         private_data_dir='./',
         playbook='site.yml',
