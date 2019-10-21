@@ -8,7 +8,7 @@ def hello():
 def run(path):
     r = ansible_runner.run(
         private_data_dir='./',
-        playbook='playbook.yml',
+        playbook=path,
         extravars={'foo': 'bar'})
     # print("{}: {}".format(r.status, r.rc))
     # successful: 0
@@ -22,4 +22,5 @@ def run2():
     r = ansible_runner.run(
         private_data_dir='./',
         playbook='site.yml',
+        inventory='hosts',
         extravars={'foo': 'bar'})

@@ -19,9 +19,10 @@ services:
   jupyter:
     build: ./docker/jupyter
     image: jupyter_ansible
+    command: "jupyter notebook --ip=0.0.0.0 --allow-root --no-browser"
     volumes:
-      # - jupyter_data:/home/jovyan
-      - ./notebooks:/home/jovyan
+      # - jupyter_data:/home/ansible
+      - ./notebooks:/home/ansible
     ports:
       - 8888:8888
     networks:
