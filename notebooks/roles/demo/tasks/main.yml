@@ -14,3 +14,11 @@
   debug:
     msg: "User {{ item.key }} is {{ item.name }} ({{ item.telephone }})"
   loop: "{{ users }}"
+
+
+- name: CREATING USER ACCOUNTS
+  user:
+    name: "{{ item.key }}"
+    state: "{{ item.state }}"
+    # remove: yes
+  loop: "{{ users }}"

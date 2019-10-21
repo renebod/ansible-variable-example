@@ -1,14 +1,11 @@
 import ansible_runner
 
 
-def hello():
-    print("World")
-
-
-def run(path):
+def ansiblerun():
     r = ansible_runner.run(
         private_data_dir='./',
-        playbook=path,
+        playbook='site.yml',
+        inventory='hosts',
         extravars={'foo': 'bar'})
     # print("{}: {}".format(r.status, r.rc))
     # successful: 0
@@ -16,11 +13,3 @@ def run(path):
     #     print(each_host_event['event'])
     #     print("Final status:")
     #     print(r.stats)
-
-
-def run_roles():
-    r = ansible_runner.run(
-        private_data_dir='./',
-        playbook='site.yml',
-        inventory='hosts',
-        extravars={'foo': 'bar'})

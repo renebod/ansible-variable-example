@@ -5,4 +5,4 @@ notebooks/_*
 notebooks/*log
 notebooks/artifacts
 notebooks/env
-notebooks/couchdb_fill.ipynb
+notebooks/couchdb_fill_donottouch.ipynb
