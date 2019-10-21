@@ -13,4 +13,4 @@ RUN pip install jupyter
 EXPOSE 8888
 
 WORKDIR "/home/ansible"
-CMD "jupyter notebook --ip=0.0.0.0 --allow-root --no-browser"
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--no-browser"]

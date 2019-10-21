@@ -1,12 +1,10 @@
 ---
-# This playbook updates apt.
-
-
-- name: Update and upgrade apt packages
-  # become: true
-  # apt:
-  #   upgrade: yes
-  #   update_cache: yes
-    # cache_valid_time: 86400 #One day
+- name: SHOW DICTIONARY
   debug:
-    msg: "Hello World"
+    msg: "DICT LOOKUP: {{ lookup('dict', bla) }}"
+
+
+- name: PRINT PHONE RECORDS
+  debug:
+    msg: "User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})"
+  loop: "{{ lookup('dict', users) }}"
