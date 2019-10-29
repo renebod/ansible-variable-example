@@ -9,7 +9,7 @@ services:
     ports:
       - 5984:5984
     volumes:
-      - ./couchdb/data:/opt/couchdb/data
+      - couchdb_data:/opt/couchdb/data
     environment:
       - 'COUCHDB_USER=admin'
       - 'COUCHDB_PASSWORD=password'
@@ -36,8 +36,9 @@ services:
     networks:
       - private
 
-# volumes:
-#   jupyter_data:
+volumes:
+  couchdb_data:
+  # jupyter_data:
 
 networks:
   private:
