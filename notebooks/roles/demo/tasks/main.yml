@@ -27,4 +27,51 @@
   hello_world:
   register: result
 
-- debug: var=result
+- name: PRINTING RETURN
+  debug: var=result
+
+
+- name: USING A MODIFYING MODULE
+  version_change:
+    version_name: "Before"
+    version_no:  1.1.1
+    unchanged_value: "This will pass through"
+  register: result
+
+- name: PRINTING RETURN
+  debug: var=result
+
+
+- name: PASSING VARIABLES
+  list:
+    hello: "hello World"
+    ourlist: ['']
+  register: result
+
+- name: PRINTING RETURN
+  debug: var=result
+
+
+- name: BOILER PLATE
+  boiler_plate:
+    state: present
+    enabled: True
+    name: nothing
+  register: result
+
+
+- name: PRINTING RETURN
+  debug: var=result
+
+
+- name: CALL ME
+  call_me:
+    name: "{{ item.name }}"
+    telephone: "{{ item.telephone }}"
+    state: "{{ item.state }}"
+  loop: "{{ users }}"
+  register: result
+
+
+- name: PRINTING RETURN
+  debug: var=result
