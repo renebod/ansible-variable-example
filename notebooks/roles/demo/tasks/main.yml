@@ -20,5 +20,11 @@
   user:
     name: "{{ item.key }}"
     state: "{{ item.state }}"
-    # remove: yes
   loop: "{{ users }}"
+
+
+- name: DESIGNING A CUSTOM MODULE
+  hello_world:
+  register: result
+
+- debug: var=result
