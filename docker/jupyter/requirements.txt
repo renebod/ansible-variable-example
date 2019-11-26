@@ -1,0 +1,7 @@
+ansible
+ansible_runner
+couchdb
+jupyter
+pandas
+ncclient
+xmltodict
