@@ -3,6 +3,7 @@ ansible_runner
 couchdb
 jupyter
 pandas
+jinja2
 netaddr
 ncclient
 xmltodict

@@ -1,4 +1,5 @@
 import os
+import shutil
 from jinja2 import Template
 
 
@@ -26,6 +27,16 @@ studentnumber = 0
 for student in students:
     studentnumber = studentnumber + 1
     f.write("  student" + format(studentnumber, '03d') + ":\r\n")
+
+
+# Copy the notebooks per student
+shutil.rmtree('students')
+f.write("networks:\r\n")
+studentnumber = 0
+for student in students:
+    studentnumber = studentnumber + 1
+    shutil.copytree('notebooks/workshop_part_01', 'students/student' + format(studentnumber, '03d'))
+
 
 
 studentnumber = 0

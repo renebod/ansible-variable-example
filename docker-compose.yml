@@ -22,7 +22,7 @@ services:
     command: jupyter notebook --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.password=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6
     volumes:
       # - jupyter_data:/home/ansible
-      - ./notebooks:/code
+      - ./:/code
     environment:
       - 'JUPYTER_PASSWORD=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6'
       - USER=student001
