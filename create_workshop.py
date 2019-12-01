@@ -7,7 +7,7 @@ students = ['Alice Appleworth', 'Bob Bananarama', 'Carlos Carrot']
 
 filename = "workshop_python_edition_01.yml"
 f = open(filename,"w+")
-f.write("version: '3.2'\r\n\r\nservices:\r\n\r\n")
+f.write("version: '3.2'\n\nservices:\n\n")
 
 with open('docker-compose_template.j2') as file_:
     template = Template(file_.read())
@@ -18,25 +18,24 @@ studentnumber = 0
 for student in students:
      studentnumber = studentnumber + 1
      tm = template.render(student=student, number=str(format(studentnumber, '03d')))
-     f.write(tm + "\r\n" * 3)
+     f.write(tm + "\n" * 3)
 
 
 # This is for networks
-f.write("networks:\r\n")
+f.write("networks:\n")
 studentnumber = 0
 for student in students:
     studentnumber = studentnumber + 1
-    f.write("  student" + format(studentnumber, '03d') + ":\r\n")
+    f.write("  student" + format(studentnumber, '03d') + ":\n")
 
 
 # Copy the notebooks per student
-shutil.rmtree('students')
-f.write("networks:\r\n")
+if os.path.exists('./students'):
+    shutil.rmtree('students')
 studentnumber = 0
 for student in students:
     studentnumber = studentnumber + 1
     shutil.copytree('notebooks/workshop_part_01', 'students/student' + format(studentnumber, '03d'))
-
 
 
 studentnumber = 0
