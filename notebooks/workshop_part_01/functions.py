@@ -1,5 +1,9 @@
 #!/usr/bin/env python
+import os
 import random
+
+def welkom():
+    return "Welkom " + os.environ.get('USER', 'unknown')
 
 def get_number():
     return random.randint(77,591)

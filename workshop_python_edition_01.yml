@@ -1,0 +1,74 @@
+version: '3.2'
+
+services:
+
+    # Workshop services voor Alice Appleworth
+    jupyter_001:
+      build: ./docker/jupyter
+      image: jupyter_ansible
+      command: jupyter notebook --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.password=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6
+      # volumes:
+      #   - ./notebooks:/code
+      environment:
+        - 'JUPYTER_PASSWORD=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6'
+        - USER=Alice Appleworth
+      ports:
+        - 8001:8888
+      networks:
+        - student001
+
+    ubuntu_001:
+      build: ./docker/ubuntu
+      image: ubuntu_ssh
+      networks:
+        - student001
+
+
+    # Workshop services voor Bob Bananarama
+    jupyter_002:
+      build: ./docker/jupyter
+      image: jupyter_ansible
+      command: jupyter notebook --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.password=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6
+      # volumes:
+      #   - ./notebooks:/code
+      environment:
+        - 'JUPYTER_PASSWORD=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6'
+        - USER=Bob Bananarama
+      ports:
+        - 8002:8888
+      networks:
+        - student002
+
+    ubuntu_002:
+      build: ./docker/ubuntu
+      image: ubuntu_ssh
+      networks:
+        - student002
+
+
+    # Workshop services voor Carlos Carrot
+    jupyter_003:
+      build: ./docker/jupyter
+      image: jupyter_ansible
+      command: jupyter notebook --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.password=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6
+      # volumes:
+      #   - ./notebooks:/code
+      environment:
+        - 'JUPYTER_PASSWORD=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6'
+        - USER=Carlos Carrot
+      ports:
+        - 8003:8888
+      networks:
+        - student003
+
+    ubuntu_003:
+      build: ./docker/ubuntu
+      image: ubuntu_ssh
+      networks:
+        - student003
+
+
+networks:
+  student001:
+  student002:
+  student003:

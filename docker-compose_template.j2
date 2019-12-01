@@ -1,0 +1,20 @@
+    # Workshop services voor {{ student }}
+    jupyter_{{ number }}:
+      build: ./docker/jupyter
+      image: jupyter_ansible
+      command: jupyter notebook --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.password=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6
+      # volumes:
+      #   - ./notebooks:/code
+      environment:
+        - 'JUPYTER_PASSWORD=sha1:58eaa2e688ae:11fd96685b9203d1256a1e09603c9be4f62c94b6'
+        - USER={{ student }}
+      ports:
+        - 8{{ number }}:8888
+      networks:
+        - student{{ number }}
+
+    ubuntu_{{ number }}:
+      build: ./docker/ubuntu
+      image: ubuntu_ssh
+      networks:
+        - student{{ number }}
