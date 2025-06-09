@@ -16,7 +16,7 @@
 #   loop: "{{ users }}"
 
 
-- name: CREATING USER ACCOUNTS
+- name: MANAGING USER ACCOUNTS
   user:
     name: "{{ item.key }}"
     comment: "{{ item.name }}"
