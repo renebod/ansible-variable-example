@@ -19,7 +19,8 @@
 - name: CREATING USER ACCOUNTS
   user:
     name: "{{ item.key }}"
-    password: "{{ item.key }}"
+    comment: "{{ item.name }}"
+    password: "{{ item.password }}"
     state: "{{ item.state }}"
   loop: "{{ users }}"
 

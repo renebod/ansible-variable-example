@@ -1,5 +1,6 @@
 .DS_Store
 couchdb
+.ipynb_checkpoints
 notebooks/.*
 notebooks/_*
 notebooks/*log

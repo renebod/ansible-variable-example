@@ -1,5 +1,6 @@
 import couchdb
 import json
+import crypt
 import pandas as pd
 from datetime import datetime
 
