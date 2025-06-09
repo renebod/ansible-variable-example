@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 MAINTAINER René Bod "https://github.com/renebod"
 
-RUN apt-get update && apt-get install -y openssh-server
+RUN apt-get update && apt-get install -y openssh-server neofetch
 RUN mkdir /var/run/sshd
 
 
