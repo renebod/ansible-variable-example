@@ -1,77 +1,78 @@
 ---
-- name: SHOW DICTIONARY
-  debug:
-    msg: "DICT LOOKUP: {{ lookup('dict', bla) }}"
+# - name: SHOW DICTIONARY
+#   debug:
+#     msg: "DICT LOOKUP: {{ lookup('dict', bla) }}"
 
 
-- name: PRINT PHONE RECORDS
-  debug:
-    msg: "User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})"
-  loop: "{{ lookup('dict', users_orig) }}"
+# - name: PRINT PHONE RECORDS
+#   debug:
+#     msg: "User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})"
+#   loop: "{{ lookup('dict', users_orig) }}"
 
 
-- name: PRINT DYNAMIC PHONE RECORDS
-  debug:
-    msg: "User {{ item.key }} is {{ item.name }} ({{ item.telephone }})"
-  loop: "{{ users }}"
+# - name: PRINT DYNAMIC PHONE RECORDS
+#   debug:
+#     msg: "User {{ item.key }} is {{ item.name }} ({{ item.telephone }})"
+#   loop: "{{ users }}"
 
 
 - name: CREATING USER ACCOUNTS
   user:
     name: "{{ item.key }}"
+    password: "{{ item.key }}"
     state: "{{ item.state }}"
   loop: "{{ users }}"
 
 
-- name: DESIGNING A CUSTOM MODULE
-  hello_world:
-  register: result
+# - name: DESIGNING A CUSTOM MODULE
+#   hello_world:
+#   register: result
 
-- name: PRINTING RETURN
-  debug: var=result
-
-
-- name: USING A MODIFYING MODULE
-  version_change:
-    version_name: "Before"
-    version_no:  1.1.1
-    unchanged_value: "This will pass through"
-  register: result
-
-- name: PRINTING RETURN
-  debug: var=result
+# - name: PRINTING RETURN
+#   debug: var=result
 
 
-- name: PASSING VARIABLES
-  list:
-    hello: "hello World"
-    ourlist: ['']
-  register: result
+# - name: USING A MODIFYING MODULE
+#   version_change:
+#     version_name: "Before"
+#     version_no:  1.1.1
+#     unchanged_value: "This will pass through"
+#   register: result
 
-- name: PRINTING RETURN
-  debug: var=result
-
-
-- name: BOILER PLATE
-  boiler_plate:
-    state: present
-    enabled: True
-    name: nothing
-  register: result
+# - name: PRINTING RETURN
+#   debug: var=result
 
 
-- name: PRINTING RETURN
-  debug: var=result
+# - name: PASSING VARIABLES
+#   list:
+#     hello: "hello World"
+#     ourlist: ['']
+#   register: result
+
+# - name: PRINTING RETURN
+#   debug: var=result
 
 
-- name: CALL ME
-  call_me:
-    name: "{{ item.name }}"
-    telephone: "{{ item.telephone }}"
-    state: "{{ item.state }}"
-  loop: "{{ users }}"
-  register: result
+# - name: BOILER PLATE
+#   boiler_plate:
+#     state: present
+#     enabled: True
+#     name: nothing
+#   register: result
 
 
-- name: PRINTING RETURN
-  debug: var=result
+# - name: PRINTING RETURN
+#   debug: var=result
+
+
+# - name: CALL ME
+#   call_me:
+#     name: "{{ item.name }}"
+#     telephone: "{{ item.telephone }}"
+#     state: "{{ item.state }}"
+#   loop: "{{ users }}"
+#   register: result
+
+
+# - name: PRINTING RETURN
+#   debug: var=result

@@ -22,7 +22,7 @@
       status:
         colour: red
         ready: true
-    - name: Allan
+    - name: Alan
       epic: true
       office: Amsterdam
       status:
