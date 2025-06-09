@@ -1,36 +1,5 @@
 ---
-users: [{
-    "_id": "4f2c399851aa3d12cba458f265000e0b",
-    "_rev": "2-27dc3c420f6553f047f26edd072c9e48",
-    "doc_type": "users",
-    "key": "alice",
-    "name": "Alice Appleworth",
-    "state": "absent",
-    "telephone": "123-456-7890"
-},{
-    "_id": "4f2c399851aa3d12cba458f265000e45",
-    "_rev": "1-76db93b362e7464e9a72cad1063f90f4",
-    "doc_type": "users",
-    "key": "bob",
-    "name": "Bob Bananarama",
-    "state": "present",
-    "telephone": "987-654-3210"
-},{
-    "_id": "4f2c399851aa3d12cba458f26500124d",
-    "_rev": "1-00df11a0e05495fb2753dae52147f2dc",
-    "doc_type": "users",
-    "key": "carlos",
-    "name": "Carlos Carrot",
-    "state": "absent",
-    "telephone": "555-123-6789"
-},]
+users: []
 
-fruit: [{
-    "_id": "4f2c399851aa3d12cba458f2650015e0",
-    "_rev": "1-d2fa9b3e1569f797bbac8583bfe26ddb",
-    "color": "yellow",
-    "doc_type": "fruit",
-    "key": "pineapple",
-    "state": "present"
-},]
+fruit: []
 
